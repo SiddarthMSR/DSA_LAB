@@ -39,6 +39,7 @@ vector < set <int > >Greedy_algo_for_set_cover(set <int > &X,vector < set <int >
     return C;
 }
 
+
 int main(){
 
     set <int > X={1,2,3,4,5,6,7,8,9,10,11,12};

@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 //1st approch
 void vertexCover(vector<int> edges[], int n)
 {
