@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// Function to calculate the makespan of a schedule
+// function to calculate the makespan of a schedule
 int calculateMakespan(const vector<vector<int>> &schedule)
 {
     int maxTime = 0;
@@ -128,8 +128,8 @@ int main()
     clock_t t;
     t = clock();
 
-    vector<int> jobs = {2, 12, 3, 5}; // Processing times of jobs
-    int m = 2;                        // Number of machines
+    vector<int> jobs = {2, 12, 3, 5}; 
+    int m = 2;                        
     double initialTemp = 1000.0;      // starting temperature bacially it tell us how much we are ready to accept the worst solution
     double finalTemp = 0.001;         // final temperature basically it tell how refined solution we want nut it will increanse the time
     double coolingRate = 0.95;        // cooling rate basically slows the cooling giving the algorithm more time to explore solutions at each temperature.
