@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define T 300
+#define Cooling Rate 0.999
+int T=300;
 set <int > X={1,2,3,4,5,6,7,8,9,10,11,12};
 vector < set <int > > F={
         {1,2,3,4,5,6},
