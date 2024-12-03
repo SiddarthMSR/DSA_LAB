@@ -3,19 +3,19 @@ using namespace std;
 #define Cooling Rate 0.999
 int T=300;
 // test case 1
-// set <int > X={1,4,5,8,9,12,14,15,18,19,20,21};
-// vector < set <int > > F={
-//         {1,18,9,4},
-//         {4,1,19,8},
-//         {4,18,1,9,14},
-//         {8,5,1,18,4},
-//         {15,19,20,12},
-//         {14,15,19,5},
-//         {19,8,21,14},
-//         {19,12,1,20,5},
-//         {19,14,1,18,5},
-//         {20,8,18,5,1,4}
-//     };
+set <int > X={1,4,5,8,9,12,14,15,18,19,20,21};
+vector < set <int > > F={
+        {1,18,9,4},
+        {4,1,19,8},
+        {4,18,1,9,14},
+        {8,5,1,18,4},
+        {15,19,20,12},
+        {14,15,19,5},
+        {19,8,21,14},
+        {19,12,1,20,5},
+        {19,14,1,18,5},
+        {20,8,18,5,1,4}
+    };
 // test case 2
 // set<int> X = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
@@ -30,17 +30,17 @@ int T=300;
 //         {7, 8, 20}, 
 //         {15, 16, 17, 18, 19, 20}
 //     };
-    set<int> X = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    // set<int> X = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    vector<set<int>> F = {
-        {1,2,7,9,10},
-        {4,5,2,3},
-        {5,6,7},
-        {9,10,8},
-        {1,2,3},
-        {7,8,4},
-        {5,6,9,10}
-    };
+    // vector<set<int>> F = {
+    //     {1,2,7,9,10},
+    //     {4,5,2,3},
+    //     {5,6,7},
+    //     {9,10,8},
+    //     {1,2,3},
+    //     {7,8,4},
+    //     {5,6,9,10}
+    // };
 
 int mini_cost=0;
 string Gen_permutation(int len){
@@ -107,7 +107,7 @@ string ans_by_SA(){
     mini_cost=cost(s);
     string mini_str=s;
     // cout<<s<<endl;
-    int markov_chains=50000;
+    int markov_chains=5000000;
     while(markov_chains--){
         string new_str;
         new_str=Gen_neighbor(s);
@@ -165,13 +165,68 @@ void printset(ofstream &file,set <int > S){
     }
     file<<"}";
 }
+string num_Bin(long long int n,int si){
+string t;
+for(int i=0;i<si;i++){
+    if(n%2==0)t.push_back('0');
+    else t.push_back('1');
+    n/=2;
+}
+for(int i=0;i<si/2;i++){
+    if(t[i]==t[si-i-1])continue;
+    else if(t[i]=='1')t[i]='0',t[si-i-1]='1';
+    else t[i]='1',t[si-i-1]='0';
+}
+return t;
+}
+void Gen_Set(int n,int maxn){
+    X.clear();
+    F.clear();
+    for(int i=0;i<n;i++){
+        X.insert(i+1);
+    }
+    int a[n+1]={};
+    for(int i=1;i<=pow(2,X.size())&&maxn>=0;i++){
+        int ch=rand()%2;
+        if(ch==1){
+            string temp=num_Bin(i,X.size());
+            set <int > S;
+            for(int j=0;j<temp.size();j++){
+                if(temp[j]=='1')S.insert(j+1),
+                a[j+1]++;
+            }
+            F.push_back(S);maxn--;
+        }
+    }
+    set <int > S;
+    for(int i=1;i<=n;i++){
+        if(a[i]==0)S.insert(i);
+    }
+    F.push_back(S);
+    
+
+}
+string BruteForce(){
+    string s;
+    for(int i=0;i<F.size();i++)s.push_back('1');
+    for(long long int i=0;i<pow(2,F.size());i++){
+        string temp=num_Bin(i,F.size());
+        if(is_valid(temp)){
+            if(cost(temp)<cost(s))s=temp;
+        }
+    }
+    return s;
+}
 int main(){
+    Gen_Set(10,10);
+    cout<<"Generated"<<endl;
     for(int i=0;i<F.size();i++)Tr.push_back('0');
     ofstream file("TestCases_setcover.txt",ios::trunc);
     clock_t start,end;
     start=clock();
     vector < set <int > > C=Greedy_algo_for_set_cover(X,F);
     end=clock();
+    cout<<"finished TR"<<endl;
     file<<endl<<"Test Case:"<<endl;
     file<<"X = ";
     printset(file,X);
@@ -194,5 +249,10 @@ int main(){
     file<<"For SA:"<<endl;
     file<<"String:"<<sa<<endl;
     file<<"Time taken:"<<(double)(end-start)/CLOCKS_PER_SEC<<endl;
-
+    start=clock();
+    string br=BruteForce();
+    end=clock();
+    file<<"For BF:"<<endl;
+    file<<"String:"<<br<<endl;
+    file<<"Time taken:"<<(double)(end-start)/CLOCKS_PER_SEC<<endl;
 }
