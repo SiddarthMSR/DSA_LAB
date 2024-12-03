@@ -129,6 +129,7 @@ int main()
 
 
 // 3rd approch
+
 bool check(int n, int k, int m, vector<vector<int>> &e)
 {
     int set = (1 << k) - 1;
