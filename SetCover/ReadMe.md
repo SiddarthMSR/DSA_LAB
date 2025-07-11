@@ -1,10 +1,10 @@
-# 🧮 Set Cover Solver in C++
+# Set Cover Solver in C++
 
 This C++ project solves the **Set Cover Problem** (an NP-hard problem) using three approaches: **Brute Force**, **Greedy Approximation**, and **Simulated Annealing**.
 
 ---
 
-## 🔍 What is Set Cover?
+## What is Set Cover?
 
 Given:
 - A universe set **X** = {x₁, x₂, ..., xₙ}
@@ -18,20 +18,20 @@ The goal is to find a set cover **D** of **minimum size** (smallest number of se
 
 ---
 
-## ✨ Features
+## Features
 
-- 🎛️ **Flexible Input System**  
+- **Flexible Input System**  
   Supports either **hardcoded input** or **manual input** via terminal.
 
-- ✅ **Brute Force Approach**  
+- **Brute Force Approach**  
   Tries all combinations to find the smallest valid cover.  
   ⚠️ Suitable only for **small input sizes** due to exponential time complexity.
 
-- ⚡ **Greedy Approximation**  
+- **Greedy Approximation**  
   Repeatedly selects the set covering the most remaining uncovered elements.  
   Guarantees solution size ≤ **ln(n) × OPT** (where OPT is the size of the optimal solution).
 
-- 🔥 **Simulated Annealing**  
+- **Simulated Annealing**  
   Uses probabilistic exploration to escape local minima and approach a near-optimal solution.  
   Uses configurable parameters: initial temperature, cooling rate, number of iterations.
 
@@ -59,8 +59,8 @@ g++ main.cpp -o set_cover
 ---
 ## 🚀 Future Plan
 
-- ✅ Enable users to play with parameters of Simulated Annealing  
-- 📈 Visualization of the data  
+- Enable users to play with parameters of Simulated Annealing  
+- Visualization of the data  
 
 ---
 ## 📊 Sample Output Format
