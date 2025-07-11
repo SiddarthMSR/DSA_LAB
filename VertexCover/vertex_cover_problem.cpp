@@ -4,25 +4,18 @@
 
 using namespace std;
 
-
-
-//1st approch
-void vertexCover(vector<int> edges[], int n)
+void vertexCoverApproach1(vector<int> edges[], int n)
 {
     vector<bool> visited(n, false);
 
-    // Iterate over all vertices
     for (int i = 0; i < n; i++)
     {
-        // If the vertex is not yet visited
         if (!visited[i])
         {
-            // Traverse all adjacent vertices of the current vertex
             for (int adj : edges[i])
             {
                 if (!visited[adj])
                 {
-                    // Include both vertices in the vertex cover
                     visited[i] = true;
                     visited[adj] = true;
                     break;
@@ -31,57 +24,26 @@ void vertexCover(vector<int> edges[], int n)
         }
     }
 
-    // Print the vertices in the vertex cover
     cout << "Vertex Cover: ";
     for (int i = 0; i < n; i++)
     {
         if (visited[i])
         {
-            cout << i + 1 << " "; // Convert back to 1-based for output
+            cout << i + 1 << " ";
         }
     }
     cout << endl;
 }
 
-int main()
-{
-    int n, m;
-    cout << "Enter the number of vertices and edges: ";
-    cin >> n >> m;
-
-    // Initialize an adjacency list for the graph
-    vector<int> edges[n];
-    cout << "Enter the edges (u v):" << endl;
-    for (int i = 0; i < m; i++)
-    {
-        int u, v;
-        cin >> u >> v;
-        u--; // Convert to 0-based indexing
-        v--; // Convert to 0-based indexing
-        edges[u].push_back(v);
-        edges[v].push_back(u);
-    }
-
-    // Call the vertex cover function
-    vertexCover(edges, n);
-
-    return 0;
-}
-
-
-
-// 2nd approch
-void vertexCover(vector<pair<int, int>> edges, int n)
+void vertexCoverApproach2(vector<pair<int, int>> edges, int n)
 {
     vector<bool> visited(n, false);
 
-    // Iterate over all edges
     for (int i = 0; i < edges.size(); i++)
     {
         int u = edges[i].first;
         int v = edges[i].second;
 
-        // If neither vertex is visited, include both in the vertex cover
         if (!visited[u] && !visited[v])
         {
             visited[u] = true;
@@ -89,46 +51,16 @@ void vertexCover(vector<pair<int, int>> edges, int n)
         }
     }
 
-    // Print the vertices in the vertex cover
     cout << "Vertex Cover: ";
     for (int i = 0; i < n; i++)
     {
         if (visited[i])
         {
-            cout << i + 1 << " "; // Convert to 1-based indexing for output
+            cout << i + 1 << " ";
         }
     }
     cout << endl;
 }
-
-int main()
-{
-    int n, m;
-    cout << "Enter the number of vertices and edges: ";
-    cin >> n >> m;
-
-    // Initialize the edge list
-    vector<pair<int, int>> edges;
-    cout << "Enter the edges (u v):" << endl;
-    for (int i = 0; i < m; i++)
-    {
-        int u, v;
-        cin >> u >> v;
-        u--; // Convert to 0-based indexing
-        v--; // Convert to 0-based indexing
-        edges.push_back({u, v});
-    }
-
-    // Call the vertex cover function
-    vertexCover(edges, n);
-
-    return 0;
-}
-
-
-
-
-// 3rd approch
 
 bool check(int n, int k, int m, vector<vector<int>> &e)
 {
@@ -161,13 +93,12 @@ bool check(int n, int k, int m, vector<vector<int>> &e)
             return true;
         }
 
-        // Gosper's Hack for generating the next combination
         int c = set & -set;
         int r = set + c;
         set = (((r ^ set) >> 2) / c) | r;
     }
 
-    return false; // Add a return statement if no vertex cover is found
+    return false;
 }
 
 int helper(vector<vector<int>> &e, int n, int m)
@@ -194,7 +125,7 @@ int helper(vector<vector<int>> &e, int n, int m)
     return ans;
 }
 
-int vertexCover(vector<pair<int, int>> &e, int n)
+int vertexCoverApproach3(vector<pair<int, int>> &e, int n)
 {
     int m = e.size();
     vector<vector<int>> g(n + 1, vector<int>(n + 1, 0));
@@ -210,22 +141,59 @@ int vertexCover(vector<pair<int, int>> &e, int n)
 
 int main()
 {
-    int n, m;
+    int n, m, approach;
     cout << "Enter the number of vertices and edges: ";
     cin >> n >> m;
+    
+    cout << "Choose approach (1, 2, or 3): ";
+    cin >> approach;
 
-    vector<pair<int, int>> e;
-    cout << "Enter the edges (u v):" << endl;
-    for (int i = 0; i < m; i++)
+    if (approach == 1)
     {
-        int u, v;
-        cin >> u >> v;
-        e.push_back({u, v});
+        vector<int> edges[n];
+        cout << "Enter the edges (u v):" << endl;
+        for (int i = 0; i < m; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+            u--;
+            v--;
+            edges[u].push_back(v);
+            edges[v].push_back(u);
+        }
+        vertexCoverApproach1(edges, n);
     }
-
-    int ans = vertexCover(e, n);
-
-    cout << "Minimum Vertex Cover: " << ans << endl;
+    else if (approach == 2)
+    {
+        vector<pair<int, int>> edges;
+        cout << "Enter the edges (u v):" << endl;
+        for (int i = 0; i < m; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+            u--;
+            v--;
+            edges.push_back({u, v});
+        }
+        vertexCoverApproach2(edges, n);
+    }
+    else if (approach == 3)
+    {
+        vector<pair<int, int>> e;
+        cout << "Enter the edges (u v):" << endl;
+        for (int i = 0; i < m; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+            e.push_back({u, v});
+        }
+        int ans = vertexCoverApproach3(e, n);
+        cout << "Minimum Vertex Cover: " << ans << endl;
+    }
+    else
+    {
+        cout << "Invalid approach selected!" << endl;
+    }
 
     return 0;
 }
