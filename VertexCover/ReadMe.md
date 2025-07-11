@@ -1,4 +1,4 @@
-# 🧮 Vertex Cover Solver in C++
+# Vertex Cover Solver in C++
 
 This C++ project solves the **Vertex Cover Problem** (an NP-complete problem) using multiple approaches: brute force, approximation, and simulated annealing.
 
@@ -12,26 +12,26 @@ In a graph, a **vertex cover** is a set of vertices such that every edge has at 
 
 ## ✨ Features
 
-- ✅ **Brute Force Approach**  
+- **Brute Force Approach**  
   Explores all possible subsets to find the minimum vertex cover.  
   ⚠️ Suitable only for small inputs due to exponential time.
 
-- ⚡ **Approximation Algorithm**  
+- **Approximation Algorithm**  
   Greedily picks random edges and includes both endpoints.  
   Guarantees a solution at most 2× the optimal.
 
-- 🔥 **Simulated Annealing**  
+- **Simulated Annealing**  
   A stochastic metaheuristic that explores neighboring solutions to escape local minima.  
   Multiple iterations with cooling schedule help approach global optimal.
 
-- 🎛️ **Flexible Input**  
+- **Flexible Input**  
   - Input via terminal  
   - Hardcoded edges  
   - Auto-generated random graphs with adjustable density
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 - `Graph` class  
   - Builds and represents the undirected graph
@@ -47,7 +47,7 @@ In a graph, a **vertex cover** is a set of vertices such that every edge has at 
 
 ---
 
-## 🛠️ Compile & Run
+## Compile & Run
 
 ```bash
 g++ main.cpp -o vertex_cover
