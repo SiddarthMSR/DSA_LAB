@@ -4,13 +4,13 @@ This C++ project solves the **Vertex Cover Problem** (an NP-complete problem) us
 
 ---
 
-## 🔍 What is Vertex Cover?
+## What is Vertex Cover?
 
 In a graph, a **vertex cover** is a set of vertices such that every edge has at least one endpoint in that set. The goal is to find the smallest such set.
 
 ---
 
-## ✨ Features
+## Features
 
 - **Brute Force Approach**  
   Explores all possible subsets to find the minimum vertex cover.  
@@ -58,8 +58,8 @@ g++ main.cpp -o vertex_cover
 
 ## 🚀 Future Plan
 
-- ✅ Enable users to play with parameters of Simulated Annealing  
-- 📈 Visualization of the Graphs  
+-  Enable users to play with parameters of Simulated Annealing  
+-  Visualization of the Graphs  
 
 ---
 
