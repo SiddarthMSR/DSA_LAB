@@ -138,7 +138,7 @@ vector<int> simulatedAnnealingSubsetSum(const vector<int>& S, int t, double init
     return bestSolution;
 }
 
-// Helper function to compute accuracy (deviation from target)
+// Function to compute accuracy
 double computeAccuracy(int bruteSum, int currentSum) {
     return (double)(currentSum) / bruteSum * 100;
 }
