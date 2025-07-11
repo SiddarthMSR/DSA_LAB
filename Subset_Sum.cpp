@@ -56,7 +56,7 @@ vector<int> approximateSubsetSum(const vector<int>& S, int t, double epsilon) {
     return chosenSubset;
 }
 
-// Function to save input and output in JSON-like format
+// Function to save input and output
 void saveToFile(const vector<int>& S, int t, const vector<int>& subset) {
     ofstream outFile("output_data.txt");
     outFile << "{\n";
@@ -81,26 +81,21 @@ int main() {
     int n, t;
     double epsilon;
 
-    // Input the number of sticks
     cout << "Enter the number of sticks: ";
     cin >> n;
 
-    // Input the sticks
     vector<int> S(n);
     cout << "Enter the lengths of the sticks: ";
     for (int i = 0; i < n; i++) {
         cin >> S[i];
     }
 
-    // Input the target length
     cout << "Enter the target length: ";
     cin >> t;
 
-    // Input the approximation factor
     cout << "Enter the approximation factor (epsilon): ";
     cin >> epsilon;
 
-    // Compute the subset using the approximate subset sum algorithm
     vector<int> subset = approximateSubsetSum(S, t, epsilon);
 
     // Save input and output to a file
