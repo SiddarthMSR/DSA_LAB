@@ -181,17 +181,6 @@ jupyter notebook tsp_visualization.ipynb
 
 ---
 
-## 🎓 Educational Objectives
-
-This repository serves as a comprehensive study of:
-- **NP-hard problem solving techniques**
-- **Approximation algorithm design and analysis**
-- **Metaheuristic optimization methods**
-- **Performance comparison methodologies**
-- **Algorithm implementation best practices**
-
----
-
 ## 👥 Contributors
 
 Developed by our DSA Lab team as part of the Data Structures and Algorithms course.
