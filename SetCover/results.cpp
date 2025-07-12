@@ -239,41 +239,44 @@ vector< set<int> > generate_random_family(int universe_size = 20) {
 }
 
 int main() {
-    vector<set<int>> F = {
-        {1, 2, 3, 4, 5, 6},
-        {5, 6, 8, 9},
-        {1, 4, 7, 10},
-        {2, 5, 8, 11, 7},
-        {3, 6, 9, 12},
-        {10, 11}
-    };
+    freopen("results.txt", "w", stdout); // Redirect all output to a file
 
-    Setcover ans(F);
+    cout << "Testing Set Cover on Random Set Families...\n\n";
 
-    cout << "Enter the way you want to give the input.\n";
-    cout << "1.Hardcoded\n";
-    cout << "2.In the terminal\n";
-    int choice;
-    cin >> choice;
+    int test_cases = 10;
+    for (int t = 1; t <= test_cases; t++) {
+        cout << "==============================\n";
+        cout << "Test Case #" << t << "\n";
+        cout << "==============================\n";
 
-    if (choice == 2) {
-        ans.TakeInput();
+        vector<set<int>> F = generate_random_family();
+        Setcover solver(F);
+
+        vector<set<int>> greedy = solver.GreedyCover();
+        vector<set<int>> brute = solver.BruteForce();
+        vector<set<int>> sa = solver.Simulated_Annealing();
+
+        cout << "Original Set Family:\n";
+        print(F);
+
+        cout << "\nGreedy Set Cover:\n";
+        print(greedy);
+
+        cout << "\nBrute Force Set Cover:\n";
+        print(brute);
+
+        cout << "\nSimulated Annealing Set Cover:\n";
+        print(sa);
+
+        cout << "\n| Algorithm           | Size of Cover |\n";
+        cout << "|---------------------|---------------|\n";
+        cout << "| Brute Force         | " << brute.size() << "             |\n";
+        cout << "| Greedy              | " << greedy.size() << "             |\n";
+        cout << "| Simulated Annealing | " << sa.size() << "             |\n";
+
+        cout << "\n\n";
     }
 
-    vector<set<int>> Greedy = ans.GreedyCover();
-    vector<set<int>> Brute = ans.BruteForce();
-    vector<set<int>> SA = ans.Simulated_Annealing();
-
-    cout << "Greedy Set Cover.\n";
-    print(Greedy);
-    cout << "BruteForce Set Cover.\n";
-    print(Brute);
-    cout << "Simulated Annealing Set Cover.\n";
-    print(SA);
-
-    cout << "\n| Algorithm           | Size of Cover |\n";
-    cout << "|---------------------|---------------|\n";
-    cout << "| Brute Force         | " << Brute.size() << "             |\n";
-    cout << "| Greedy              | " << Greedy.size() << "             |\n";
-    cout << "| Simulated Annealing | " << SA.size() << "             |\n";
+    return 0;
 }
+
