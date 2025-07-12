@@ -54,7 +54,6 @@ Multiple implementations:
 Load balancing optimization with:
 - **Greedy Algorithm**: Simple machine assignment
 - **Simulated Annealing**: Advanced optimization for better load distribution
-- Performance visualization tools
 
 ---
 
