@@ -10,8 +10,8 @@ A comprehensive collection of **Data Structures and Algorithms** implementations
 **Location**: `VertexCover/` and `vertex_cover_problem.cpp`
 
 Implementation of multiple approaches to solve the Vertex Cover problem:
+- **Brute-Force** : Exact solution for small instances
 - **Greedy Approximation**: 2-approximation algorithm
-- **Exact Algorithm**: Binary search with bit manipulation (Gosper's hack)
 - **Simulated Annealing**: Metaheuristic optimization approach
 
 **Features**:
