@@ -82,8 +82,10 @@ DSA_LAB/
 │   └── result_code.cpp             # For generating results
 │   └── results                     # Comparison results
 ├── SetCover/                       # Set Cover problem solutions
-│   ├── main.cpp                    # Complete implementation o
+│   ├── main.cpp                    # Complete implementation
 │   └── ReadMe.md                   # Detailed documentation
+│   └──results.cpp                  # code for results
+│   └── results                     # Comparison results
 ├── Travelling Salesman Problem/    # TSP solutions
 │   ├── tsp.c                       # C implementation
 │   ├── tsp_visualization.ipynb     # Jupyter visualization
