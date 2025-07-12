@@ -7,7 +7,7 @@ A comprehensive collection of **Data Structures and Algorithms** implementations
 ## 🚀 Projects Overview
 
 ### 1. **Vertex Cover Problem** 🔗
-**Location**: `VertexCover/` and `vertex_cover_problem.cpp`
+**Location**: `VertexCover/` 
 
 Implementation of multiple approaches to solve the Vertex Cover problem:
 - **Brute-Force** : Exact solution for small instances
@@ -78,8 +78,9 @@ Load balancing optimization with:
 DSA_LAB/
 ├── VertexCover/                    # Vertex Cover implementations
 │   ├── main.cpp                    # Main implementation
-│   ├── vertex_cover_problem.cpp    # Multiple approaches
 │   └── Assets/                     # Visual demonstrations
+│   └── result_code.cpp             # For results
+│   └── results                     # Comparison results
 ├── SetCover/                       # Set Cover problem solutions
 │   ├── main.cpp                    # Complete implementation
 │   └── ReadMe.md                   # Detailed documentation
@@ -91,14 +92,8 @@ DSA_LAB/
 │   ├── Subset_Sum.cpp              # Standard implementation
 │   └── Subset_Sum._with_SA.cpp     # Simulated Annealing variant
 ├── Parallel Machine Scheduling/    # Scheduling algorithms
-│   └── Parallel_Machine_Scheduling.cpp
-├── Simulated Annealing On Parallel Machine/  # SA optimizations
 │   ├── Simulated_Annealing_On_Parallel_Machine.cpp
-│   └── Simulated_Annealing_On_Vertex_Cover_Problem.cpp
-├── visualize.py                    # General visualization tools
-├── visualize_machine.py            # Machine scheduling visualization
-├── results.csv                     # Experiment results
-└── *.png                          # Visualization outputs
+│   └── Parallel_Machine_Scheduling.cpp
 ```
 
 ---
