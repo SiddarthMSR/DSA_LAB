@@ -77,12 +77,12 @@ Load balancing optimization with:
 ```
 DSA_LAB/
 ├── VertexCover/                    # Vertex Cover implementations
-│   ├── main.cpp                    # Main implementation
+│   ├── main.cpp                    # Compelete implementation
 │   └── Assets/                     # Visual demonstrations
-│   └── result_code.cpp             # For results
+│   └── result_code.cpp             # For generating results
 │   └── results                     # Comparison results
 ├── SetCover/                       # Set Cover problem solutions
-│   ├── main.cpp                    # Complete implementation
+│   ├── main.cpp                    # Complete implementation o
 │   └── ReadMe.md                   # Detailed documentation
 ├── Travelling Salesman Problem/    # TSP solutions
 │   ├── tsp.c                       # C implementation
@@ -94,6 +94,7 @@ DSA_LAB/
 ├── Parallel Machine Scheduling/    # Scheduling algorithms
 │   ├── Simulated_Annealing_On_Parallel_Machine.cpp
 │   └── Parallel_Machine_Scheduling.cpp
+│   └── machine_scheduling.cpp
 ```
 
 ---
